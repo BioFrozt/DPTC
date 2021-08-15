@@ -17,8 +17,8 @@ public class AssetManager : MonoBehaviour
     public void myStart()
     {
         food = new Dictionary<FoodType, int>();
-        food.Add(FoodType.HERBIVOROUS, 200);
-        food.Add(FoodType.CARNIVOROUS, 300);
+        food.Add(FoodType.LEAVES, 200);
+        food.Add(FoodType.MEAT, 300);
 
         InvokeRepeating("showTicketPrice", 0, 1);
         InvokeRepeating("reloadFoodText", 0, 1);
@@ -35,11 +35,10 @@ public class AssetManager : MonoBehaviour
 
     public void reloadFoodText()
     {
-        herbivorousFoodText.GetComponent<TextMeshProUGUI>().text = "Plants: " + food[FoodType.HERBIVOROUS];
-        carnivorousFoodText.GetComponent<TextMeshProUGUI>().text = "Meat: " + food[FoodType.CARNIVOROUS];
+        herbivorousFoodText.GetComponent<TextMeshProUGUI>().text = "Plants: " + food[FoodType.LEAVES];
+        carnivorousFoodText.GetComponent<TextMeshProUGUI>().text = "Meat: " + food[FoodType.MEAT];
     }
-
-
+    
     public int getFoodByType(FoodType ft)
     {
         return food[ft];
@@ -91,8 +90,8 @@ public class AssetManager : MonoBehaviour
 }
 public enum FoodType
 {
-    HERBIVOROUS,
-    CARNIVOROUS
+    LEAVES, WOOD, FRUITS,
+    MEAT, INSECTS, FISH
 }
 public enum Area
 {

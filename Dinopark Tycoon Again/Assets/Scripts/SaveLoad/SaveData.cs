@@ -20,8 +20,8 @@ public class SaveData
         //SendToast.log("start of savedata constructor");
         AssetManager am = GameObject.Find("GameLogic").GetComponent<AssetManager>();
         money = am.getTotalMoney();
-        herbivorousFood = am.getFoodByType(FoodType.HERBIVOROUS);
-        carnivorousFood = am.getFoodByType(FoodType.CARNIVOROUS);
+        herbivorousFood = am.getFoodByType(FoodType.LEAVES);
+        carnivorousFood = am.getFoodByType(FoodType.MEAT);
 
         GameObject[] creatures = GameObject.FindGameObjectsWithTag("Creature");
         packagedCreatures = new CreatureSaveData[creatures.Length];
@@ -45,7 +45,7 @@ public class SaveData
             //SendToast.log("egg saved: " + eggs[i].speciesNumber + ", " + eggs[i].startTime);
         }
 
-        lastTimeSave = (long)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
+        lastTimeSave = Getters.getCurrentTime();
 
         //SendToast.log("end of savedata constructor");
     }

@@ -1,9 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public static class Getters
 {
+
+    public static long getCurrentTime()
+    {
+        return (long)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
+    }
+
     public static GameObject[] getValidCreatures() // NOT TESTED
     {
 

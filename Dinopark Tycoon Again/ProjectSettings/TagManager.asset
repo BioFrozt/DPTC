@@ -10,6 +10,7 @@ TagManager:
   - Egg
   - PaddockCreaturePanel
   - New tag
+  - Plot
   layers:
   - Default
   - TransparentFX

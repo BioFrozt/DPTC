@@ -11,6 +11,8 @@ public class TouchHandler : MonoBehaviour
     public Vector2 singleTouchBeginPoint;
     public GameObject paddockPanel;
     public GameObject creaturePanel;
+    public GameObject plotPanel;
+
 
     void Update()
     {
@@ -41,14 +43,39 @@ public class TouchHandler : MonoBehaviour
     }
     public void handleTouch(GameObject go)
     {
-        if (go.tag == "Paddock")
+        switch(go.tag)
         {
-            touchPaddock(go);
-        }
-        if (go.tag == "Creature")
+            case "Paddock":
+                touchPaddock(go);
+                break;
+            case "Creature":
+                touchCreature(go);
+                break;
+            case "Plot":
+                touchPlot(go);
+                break;
+        }    
+    }
+
+    private void touchPlot(GameObject plot)
+    {
+        PlotScript ps = plot.GetComponent<PlotScript>();
+        if (ps == null)
         {
-            touchCreature(go);
+            SendToast.pop("error in touchplot - PS is null");
+            return;
         }
+
+        switch(General.getMouseState())
+        {
+            case MouseState.NORMAL:
+                General.setSelectedEntity(plot);
+                plotPanel.SetActive(true);
+                SendToast.pop(General.selectedEntity.name);
+                break;
+        }
+
+
     }
 
     private void touchCreature(GameObject creature)
@@ -60,7 +87,7 @@ public class TouchHandler : MonoBehaviour
         {
             case MouseState.NORMAL:
                 creature.GetComponent<CreatureScript>().updatePanel();
-                
+
                 break;
         }
     }

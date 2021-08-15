@@ -51,8 +51,8 @@ public static class SaveLoad
 
         AssetManager am = GameObject.Find("GameLogic").GetComponent<AssetManager>();
         am.setTotalMoney(data.money);
-        am.setFoodByType(FoodType.HERBIVOROUS, data.herbivorousFood);
-        am.setFoodByType(FoodType.CARNIVOROUS, data.carnivorousFood);
+        am.setFoodByType(FoodType.LEAVES, data.herbivorousFood);
+        am.setFoodByType(FoodType.MEAT, data.carnivorousFood);
 
 
         foreach(GameObject go in GameObject.FindGameObjectsWithTag("Creature")) // shouldnt trigger
@@ -95,7 +95,7 @@ public static class SaveLoad
         }
         else
         {
-            long currentTime = (long)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
+            long currentTime = Getters.getCurrentTime();
             long timeAway = currentTime - data.lastTimeSave;
             if (timeAway > 10)
                 handleTimeAway((int)timeAway);

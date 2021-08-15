@@ -20,7 +20,7 @@ public static class SpeciesManager
         triceratops.cost = 10;
         triceratops.moneyPerTicket = 1;
         triceratops.securityLevel = 0;
-        triceratops.foodType = FoodType.HERBIVOROUS;
+        triceratops.foodType = FoodType.LEAVES;
         triceratops.weight = 1000;
         triceratops.era = Era.JURRASIC;
         triceratops.area = Area.ASIA;
@@ -36,7 +36,7 @@ public static class SpeciesManager
         species2.cost = 50;
         species2.moneyPerTicket = 5;
         species2.securityLevel = 3;
-        species2.foodType = FoodType.CARNIVOROUS;
+        species2.foodType = FoodType.MEAT;
         species2.weight = 125;
         species2.era = Era.TRIASSIC;
         species2.area = Area.ASIA;
@@ -52,7 +52,7 @@ public static class SpeciesManager
         species3.cost = 100;
         species3.moneyPerTicket = 5;
         species3.securityLevel = 4;
-        species3.foodType = FoodType.HERBIVOROUS;
+        species3.foodType = FoodType.LEAVES;
         species3.weight = 15;
         species3.era = Era.TRIASSIC;
         species3.area = Area.AFRICA;

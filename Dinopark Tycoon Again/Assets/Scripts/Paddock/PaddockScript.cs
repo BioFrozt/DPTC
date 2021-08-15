@@ -5,7 +5,6 @@ using TMPro;
 
 public class PaddockScript : MonoBehaviour
 {
-
     private int securityLevel = 0;
     public GameObject cube;
 

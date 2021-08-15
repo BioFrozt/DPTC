@@ -19,8 +19,8 @@ public class KillAllCreatures : MonoBehaviour
         AssetManager am = GameObject.Find("GameLogic").GetComponent<AssetManager>();
         SendToast.log("after resetting paddocks");
         am.setTotalMoney(333);
-        am.setFoodByType(FoodType.HERBIVOROUS, 300);
-        am.setFoodByType(FoodType.CARNIVOROUS, 200);
+        am.setFoodByType(FoodType.LEAVES, 300);
+        am.setFoodByType(FoodType.MEAT, 200);
         SendToast.pop("end of resetting game");
     }
 }
